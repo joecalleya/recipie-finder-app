@@ -1,15 +1,38 @@
 "use strict";
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var apiCall = function apiCall() {
+  var grabRecipes = function grabRecipes() {
+    var request, data;
+    return regeneratorRuntime.async(function grabRecipes$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return regeneratorRuntime.awrap(fetch("https://www.themealdb.com/api/json/v1/1/random.php"));
 
-var jsonResponse = '';
-fetch("https://www.themealdb.com/api/json/v1/1/random.php").then(function (response) {
-  // do something if promise is successful
-  return response.json(); // Convert readable stream to javascript object notation
-}).then(function (jsonResponse) {
-  console.log(_typeof(jsonResponse)); // log the jsonofied response
+          case 2:
+            request = _context.sent;
+            _context.next = 5;
+            return regeneratorRuntime.awrap(request.json());
 
-  document.querySelector("#result").innerHTML = "".concat(jsonResponse);
-}).catch(function (error) {
-  console.log(error);
-});
+          case 5:
+            data = _context.sent;
+            return _context.abrupt("return", data);
+
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }
+    });
+  };
+
+  grabRecipes().then(function (recipieData) {
+    // console.log("index.html 16 |data", recipieData);
+    var recipe = recipieData.meals[0];
+    console.log(recipe);
+    return recipe;
+  });
+};
+
+apiCall();

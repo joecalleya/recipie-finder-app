@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
-import jsonResponse from './data/api-data.js';
+import RecipieCard from "./components/RecipieCard";
+import styles from "./App.module.scss";
+import NavBar from "./components/NavBar";
+import Routes from "./containers/Routes/Routes.jsx";
 
-function App() {
+const App = () => {
+
+  const [recipe, setRecipes] = useState([]);
+
+  const apiCall = () => {
+    const grabRecipes = async () => {
+      const request = await fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+      const data = await request.json();
+      return data;
+    };
+
+    grabRecipes().then(recipieData => {
+      var recipe = recipieData.meals[0].strMeal;
+      setRecipes(recipe)
+      return recipe;
+                          })
+                            };
+  
+if (!recipe) apiCall();
+                            
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {jsonResponse};
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <section className={styles.nav}>
+          <NavBar />
+        </section>
+        <section>
+          <button type="button" text="Update" 
+          onClick={() => setRecipes(null)}>RandomRecipie</button>
+        </section>
+        <section>
+          <RecipieCard recipe={recipe}/>
+        </section>
     </div>
   );
 }
