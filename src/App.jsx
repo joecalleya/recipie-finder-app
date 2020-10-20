@@ -17,7 +17,7 @@ const App = () => {
     };
 
     grabRecipes().then(recipieData => {
-      var recipe = recipieData.meals[0].strMeal;
+      var recipe = recipieData.meals[0];
       setRecipes(recipe)
       return recipe;
                           })
@@ -28,15 +28,18 @@ if (!recipe) apiCall();
   return (
     
     <div className="App">
-        <section className={styles.nav}>
+        <section>
           <NavBar />
         </section>
-        <section>
-          <button type="button" text="Update" 
-          onClick={() => setRecipes(null)}>RandomRecipie</button>
+        <section className={styles.SectionButton}>
+          <button className={styles.Button} type="button" text="Update" 
+          onClick={() => setRecipes(null)}>Random Recipie</button>
         </section>
         <section>
-          <RecipieCard recipe={recipe}/>
+        {recipe != null ? <RecipieCard recipe={recipe}/> : null}
+        </section>
+        <section>
+        <Routes />
         </section>
     </div>
   );

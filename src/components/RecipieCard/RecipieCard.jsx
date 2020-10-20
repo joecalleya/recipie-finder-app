@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./RecipieCard.module.scss";
 
 
@@ -12,7 +12,7 @@ const RecipieCard = (props) => {
 
             return (
                 <div className={styles.RecipieCard}>
-                    {recipe}
+                    {recipe.strMeal}
                 </div>
                     )
         };

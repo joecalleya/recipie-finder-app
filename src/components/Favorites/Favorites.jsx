@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Favorites.module.scss";
+// import styles from "./Favorites.module.scss";
 
 const Favorites = () => {
   return (
-    <section className={styles.background}>
-      <div className={styles.feedback}>
+    <section >
+      <div >
         <h2>Favorite Recipies </h2>
         <p>here are your saved Faves</p>
       </div>
@@ -12,4 +12,4 @@ const Favorites = () => {
   );
 };
 
-export default NotFound;
+export default Favorites;
