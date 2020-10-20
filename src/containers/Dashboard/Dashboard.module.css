@@ -1,0 +1,22 @@
+.content {
+  max-width: 100vw;
+  max-height: 100vh;
+  height: calc(100vh - 75px);
+}
+
+.SectionButton {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button {
+  width: 40%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+}

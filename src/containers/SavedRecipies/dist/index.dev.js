@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _Favorites = _interopRequireDefault(require("./Favorites.jsx"));
+var _SavedRecipies = _interopRequireDefault(require("./SavedRecipies.jsx"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = _Favorites.default;
+var _default = _SavedRecipies.default;
 exports.default = _default;

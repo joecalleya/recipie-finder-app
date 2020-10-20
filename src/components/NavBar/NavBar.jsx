@@ -8,8 +8,8 @@ export const NavBar = () => {
         <Link to="/">
           <h1>Random Recipie Generator</h1>
           </Link>
-          <Link to="favorites">
-          <h1>Favorites</h1>
+          <Link to="SavedRecipies">
+          <h1>SavedRecipies</h1>
           </Link>
         </div>
     )

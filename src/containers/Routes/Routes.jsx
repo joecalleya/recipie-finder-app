@@ -1,15 +1,20 @@
 import React from "react";
 import { Router } from "@reach/router";
-
-import App from "../../App";
-import Favorites from "../../components/Favorites";
+import SavedRecipies from "../SavedRecipies";
 import NotFound from "../../components/NotFound";
+import Dashboard from "../Dashboard";
 
-const Routes = () => {
+
+const Routes = (props) => {
+  const {savedRecipies} = props;
+  console.log('Routes',props);
+
+
   return (
+
     <Router>
-      <App path="/" />
-      <Favorites path="favorites" />
+      <Dashboard path="/" />
+      <SavedRecipies path="SavedRecipies" recipe={savedRecipies} />
       <NotFound default />
     </Router>
   );

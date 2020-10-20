@@ -1,4 +1,11 @@
 .NavBar {
   display: flex;
   justify-content: space-between;
+  border-bottom: solid 2px black;
+  opacity: 0.5;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
 }
