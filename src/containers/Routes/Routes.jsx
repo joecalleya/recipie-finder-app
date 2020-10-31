@@ -6,15 +6,22 @@ import Dashboard from "../Dashboard";
 
 
 const Routes = (props) => {
-  const {savedRecipies} = props;
-  console.log('Routes',props);
-
+  
+  const {setRecipes, recipe, apiCall, saveRecipieToList, savedRecipies} = props;
 
   return (
 
     <Router>
-      <Dashboard path="/" />
-      <SavedRecipies path="SavedRecipies" recipe={savedRecipies} />
+      <Dashboard path="/" 
+      setRecipes={setRecipes}
+      recipe={recipe}
+      apiCall= {apiCall}
+      saveRecipieToList={saveRecipieToList} 
+      savedRecipies={savedRecipies}/>
+      <SavedRecipies 
+      path="SavedRecipies" 
+      saveRecipieToList={saveRecipieToList} 
+      savedRecipies={savedRecipies}/>
       <NotFound default />
     </Router>
   );

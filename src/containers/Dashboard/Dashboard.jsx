@@ -2,25 +2,15 @@ import React, { useState } from "react";
 import styles from "./Dashboard.module.scss";
 import RecipieCard from "../../components/RecipieCard"
 
-const DashBoard = () => {
+const DashBoard = (props) => {
 
-  const [recipe, setRecipes] = useState([]);
+  const {setRecipes ,recipe , apiCall , saveRecipieToList} = props;
+  // const saveRecipieToList = props.saveRecipieToList;
 
-  const apiCall = () => {
-    const grabRecipes = async () => {
-      const request = await fetch("https://www.themealdb.com/api/json/v1/1/random.php")
-      const data = await request.json();
-      return data;
-    };
+  // const [recipe, setRecipes] = useState([]);
 
-    grabRecipes().then(recipieData => {
-      var recipe = recipieData.meals[0];
-      setRecipes(recipe)
-      return recipe;
-                          })
-                            };
-  
-if (!recipe) apiCall();
+
+  if (!recipe) apiCall();
 
   return (
     
@@ -30,7 +20,7 @@ if (!recipe) apiCall();
           onClick={() => setRecipes(null)}>Random Recipie</button>
         </section>
         <section>
-        {recipe != null ? <RecipieCard recipe={recipe}/> : null}
+        {recipe != null ? <RecipieCard recipe={recipe} saveRecipieToList={saveRecipieToList}/> : null}
         </section>
     </div>
   );

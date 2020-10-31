@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./SavedRecipies.module.scss";
 import RecipieCard from "../../components/RecipieCard"
 
 
 const SavedRecipies = (props) => {
 
-  // const {savedRecipies} = props;
+  const {setRecipes, savedRecipies, saveRecipieToList} = props;
 
-  console.log('Saved',props);
-
+  console.log(savedRecipies)
   
-  const contentJsx = props.length ? 
-  (<RecipieCard recipe={props}/>) : ('None Saved')
-  console.log('Saved',props)
+  const [saved, setSaved] = useState(props); 
+
+  const contentJsx = savedRecipies.length ? 
+  savedRecipies.map((item,index) =>
+                  <RecipieCard  setRecipes={setRecipes}
+                                key={index} 
+                                recipe={item}/>
+              )     
+            
+            : ('None Saved')
 
   return (
     <div >
     <section >
-        <h2>SavedRecipies Recipies </h2>
         <p>here are your Saved Items</p>
 
     </section>
