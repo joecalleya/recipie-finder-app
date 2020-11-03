@@ -9,15 +9,7 @@ import { firestore } from "../../firebase";
 
 const Routes = (props) => {
   
-  const {user,setRecipes, recipe, apiCall, saveRecipieToList, savedRecipies} = props;
-
-  const addToCookbook = (recipe) => {
-    firestore
-      .collection("recipes")
-      .doc(recipe.id + user.uid)
-      .set({ ...recipe, uid: user.uid });
-  };
-
+  const {setRecipes, recipe, apiCall, savedRecipies} = props;
 
   return (
 
@@ -26,11 +18,13 @@ const Routes = (props) => {
       setRecipes={setRecipes}
       recipe={recipe}
       apiCall= {apiCall}
-      addToCookbook={addToCookbook} />
+      // addToCookbook={addToCookbook} 
+      />
       <SavedRecipies 
       path="SavedRecipies" 
-      addToCookbook={addToCookbook} 
-      savedRecipies={savedRecipies}/>
+      // addToCookbook={addToCookbook} 
+      savedRecipies={savedRecipies}
+      />
       <NotFound default />
     </Router>
   );

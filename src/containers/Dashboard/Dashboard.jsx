@@ -5,7 +5,6 @@ import RecipieCard from "../../components/RecipieCard"
 const DashBoard = (props) => {
 
   const {setRecipes ,recipe , apiCall , addToCookbook} = props;
-  // const saveRecipieToList = props.saveRecipieToList;
 
   // const [recipe, setRecipes] = useState([]);
 

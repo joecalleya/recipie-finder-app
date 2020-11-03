@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./RecipieCard.module.scss";
+import { CrudContext } from "../../context/crudContext";
 
 
 const RecipieCard = (props) => {
     
     const [saveState, setSaveState] = useState(false);
-    const {recipe, addToCookbook } = props;
+    const {recipe} = props;
+    const crudContext = useContext(CrudContext);
+    const { addToCookbook } = crudContext;
 
     console.log(recipe)
 

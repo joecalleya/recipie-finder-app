@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes/Routes.jsx";
 import firebase, { provider } from "./firebase";
 import "./data/fa-library";
+import { UserProvider } from "./context/userContext";
+import { CrudProvider, CrudContext } from "./context/crudContext";
 
 
 let savedRecipies = [];
@@ -15,10 +17,6 @@ const App = () => {
   const [recipe, setRecipes] = useState([]);
   const [user, setUser] = useState(null);
 
-  const saveRecipieToList = (item) => {
-    savedRecipies.push(item)
-  };
-  
   console.log("APP",savedRecipies)
 
   const apiCall = () => {
@@ -48,53 +46,29 @@ const getCleanedRecipes = (rawRecipes) => {
   })
 }
 
-const signIn = () => {
-  firebase.auth().signInWithRedirect(provider);
-};
-
-const signOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      setUser(null);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const getUser = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      setUser(user);
-    } else {
-      setUser(null);
-    }
-  });
-};
-
-useEffect(() => { 
-  getUser();
-})
-
   return (
-    
-    <div className="App">
-        <section>
-          <NavBar 
-          saveRecipieToList={saveRecipieToList} 
-          savedRecipies={savedRecipies}  />
-        </section>
-        <section>
-        <Routes 
-        setRecipes={setRecipes}
-        recipe={recipe}
-        apiCall= {apiCall}
-        saveRecipieToList={saveRecipieToList} 
-        savedRecipies={savedRecipies} />
-        </section>
-    </div>
+    <UserProvider>
+      <div className="App">
+          <section>
+            <NavBar 
+            // saveRecipieToList={saveRecipieToList} 
+            // savedRecipies={savedRecipies}  
+            />
+          </section>
+          <section>
+          <CrudProvider>
+            <Routes 
+            setRecipes={setRecipes}
+            recipe={recipe}
+            apiCall= {apiCall}
+            // saveRecipieToList={saveRecipieToList} 
+            // savedRecipies={savedRecipies} 
+            />          
+          </CrudProvider>
+          </section>
+      </div>
+    </UserProvider>
+
   );
 }
 

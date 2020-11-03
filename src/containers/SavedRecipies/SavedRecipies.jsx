@@ -1,38 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import styles from "./SavedRecipies.module.scss";
 import RecipieCard from "../../components/RecipieCard"
 import { firestore } from "../../firebase";
+import { CrudContext } from "../../context/crudContext";
 
 
 const SavedRecipies = (props) => {
+  const crudContext = useContext(CrudContext);
+  const { favourites } = crudContext;
+  console.log(favourites)
 
-  const {setRecipes, savedRecipies, saveRecipieToList} = props;
-
-  console.log(savedRecipies)
-  
-  const [favourites, setFavourites] = useState([]);
-  const { user } = props;
-
-  const fetchCookbook = () => {
-    firestore
-      .collection("recipes")
-      .get()
-      .then((querySnapshot) => {
-        const favourites = querySnapshot.docs
-          .filter((doc) => doc.data().uid === user.uid)
-          .map((doc) => doc.data());
-          setFavourites(favourites);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    fetchCookbook();
-  }, []);
-
-  const contentJsx = savedRecipies.length ? 
-  savedRecipies.map((item,index) =>
-                  <RecipieCard  setRecipes={setRecipes}
+  const contentJsx = favourites.length ? 
+  favourites.map((item,index) =>
+                  <RecipieCard  
                                 key={index} 
                                 recipe={item}/>
               )     
@@ -42,7 +22,7 @@ const SavedRecipies = (props) => {
   return (
     <div >
     <section >
-        <p>here are your Saved Items</p>
+        <p>Saved...</p>
 
     </section>
     <section className={styles.cookbook}>{contentJsx}
