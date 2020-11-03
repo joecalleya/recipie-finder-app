@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import RecipieCard from "./components/RecipieCard";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Routes from "./containers/Routes/Routes.jsx";
+import firebase, { provider } from "./firebase";
+import "./data/fa-library";
+
 
 let savedRecipies = [];
 
 const App = () => {
 
   const [recipe, setRecipes] = useState([]);
+  const [user, setUser] = useState(null);
 
   const saveRecipieToList = (item) => {
     savedRecipies.push(item)
@@ -43,6 +47,36 @@ const getCleanedRecipes = (rawRecipes) => {
     return meal;
   })
 }
+
+const signIn = () => {
+  firebase.auth().signInWithRedirect(provider);
+};
+
+const signOut = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      setUser(null);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const getUser = () => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(null);
+    }
+  });
+};
+
+useEffect(() => { 
+  getUser();
+})
 
   return (
     

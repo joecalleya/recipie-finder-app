@@ -5,14 +5,13 @@ import styles from "./RecipieCard.module.scss";
 const RecipieCard = (props) => {
     
     const [saveState, setSaveState] = useState(false);
-    const {recipe, saveRecipieToList } = props;
+    const {recipe, addToCookbook } = props;
 
     console.log(recipe)
 
     const handleSaveClick = (e) => {
         e.stopPropagation();
-        setSaveState(!saveState);
-        saveRecipieToList(props.recipe);
+        addToCookbook(props.recipe);
 
       };
 

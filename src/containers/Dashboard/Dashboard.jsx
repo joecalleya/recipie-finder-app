@@ -4,7 +4,7 @@ import RecipieCard from "../../components/RecipieCard"
 
 const DashBoard = (props) => {
 
-  const {setRecipes ,recipe , apiCall , saveRecipieToList} = props;
+  const {setRecipes ,recipe , apiCall , addToCookbook} = props;
   // const saveRecipieToList = props.saveRecipieToList;
 
   // const [recipe, setRecipes] = useState([]);
@@ -20,7 +20,9 @@ const DashBoard = (props) => {
           onClick={() => setRecipes(null)}>Random Recipie</button>
         </section>
         <section>
-        {recipe != null ? <RecipieCard recipe={recipe} saveRecipieToList={saveRecipieToList}/> : null}
+        {recipe != null ? <RecipieCard 
+        recipe={recipe} 
+        addToCookbook={addToCookbook}/> : null}
         </section>
     </div>
   );
