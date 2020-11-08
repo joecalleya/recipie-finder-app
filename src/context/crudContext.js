@@ -18,6 +18,18 @@ export const CrudProvider = (props) => {
       .catch((err) => console.log(err));
   };
   
+  const removeFromCookbook = (recipe) => {
+    const query = firestore
+      .collection("recipes")
+      .where("idMeal", "==", recipe.idMeal)
+      .where("uid", "==", userContext.user.uid);
+
+    query.get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => doc.ref.delete());
+      console.log("deleted")
+      fetchCookbook();
+    });
+  };
 
   const fetchCookbook = () => {
     if (userContext.user) {
@@ -33,14 +45,10 @@ export const CrudProvider = (props) => {
         .catch((err) => console.log(err));
     }
   };
-  useEffect(() => {
-    fetchCookbook();
-    console.log(favourites);
 
-  }, [])
 
   return (
-    <CrudContext.Provider value={{ favourites, addToCookbook }}>
+    <CrudContext.Provider value={{ favourites, addToCookbook, removeFromCookbook, fetchCookbook}}>
       {props.children}
     </CrudContext.Provider>
   )

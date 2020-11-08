@@ -2,11 +2,15 @@
   max-width: 100vw;
   max-height: 100vh;
   height: calc(100vh - 75px);
+  border: 5px solid purple;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 .SectionButton {
   width: 100%;
-  height: 200px;
+  height: 5%;
   display: flex;
   justify-content: center;
   align-items: center;

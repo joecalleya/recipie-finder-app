@@ -13,7 +13,7 @@ const DashBoard = (props) => {
 
   return (
     
-    <div className="d">
+    <div className={styles.content}>
         <section className={styles.SectionButton}>
           <button className={styles.Button} type="button" text="Update" 
           onClick={() => setRecipes(null)}>Random Recipie</button>

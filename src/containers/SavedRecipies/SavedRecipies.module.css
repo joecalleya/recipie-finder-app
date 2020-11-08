@@ -1,0 +1,4 @@
+.cookbook {
+  display: flex;
+  flex-direction: column;
+}

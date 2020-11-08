@@ -2,16 +2,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vw;
-  border: 5% solid black;
+  align-content: center;
+  width: 90%;
+  height: auto;
+  background-color: papayawhip;
 }
-
-img {
-  width: 50%;
-  height: 50%;
-  opacity: 0.6;
+.RecipieCard .banner {
+  display: flex;
+  flex-direction: row;
+}
+.RecipieCard .image {
+  display: flex;
+  width: auto;
+}
+.RecipieCard .image .responsiveImage {
+  height: auto;
+  width: 100%;
+}
+.RecipieCard p {
+  font-size: 80%;
 }
 
 .SectionButton {

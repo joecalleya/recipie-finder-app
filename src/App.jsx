@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
 import RecipieCard from "./components/RecipieCard";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
@@ -27,24 +26,23 @@ const App = () => {
     };
     grabRecipes().then(recipieData => {
       var recipe = recipieData.meals[0];
+      recipe = getCleanedRecipes(recipe)
       setRecipes(recipe)
       return recipe;
 
 })};
 const getCleanedRecipes = (rawRecipes) => {
-  return rawRecipes.map(meal => {
-    // Missing step:  The goal of clean ingredients is to MAP the "strIngredient1" "strIngredient2" "strIngredient3" 
+    // Missing step:  The goal of clean ingredients is to remove the "strIngredient1" "strIngredient2" "strIngredient3" 
     // properties into an ARRAY of ingredients
-    meal.ingredients = [];
+    rawRecipes.ingredients = [];
     for (let i = 1; i < 21; i++) {
-      const ingredient = meal['strIngredient' + i];
+      const ingredient = rawRecipes['strIngredient' + i];
       if (ingredient) {
-        meal.ingredients.push(ingredient);
+        rawRecipes.ingredients.push(ingredient);
       }        
     }
-    return meal;
-  })
-}
+    return rawRecipes;
+  }
 
   return (
     <UserProvider>
