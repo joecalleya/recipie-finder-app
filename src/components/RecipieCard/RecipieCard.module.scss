@@ -10,30 +10,29 @@
   .banner {
     display: flex;
     flex-direction: row;
-  }
 
-  .image {
-    display: flex;
-    width: auto;
+    .image {
+      display: flex;
+      width: auto;
+  
+      .responsiveImage {
+        height: auto;
+        width: 100%;
+      }
+    }
+    .list {
+      width: 60%;
+      font-size: 70%;
 
-    .responsiveImage {
-      height: auto;
-      width: 100%;
+  
     }
   }
 
   p {
-    font-size: 80%;
+    font-size: 70%;
 
   }
-
 }
-
-
-
-
-
-
 
 .SectionButton {
   width: 100%;

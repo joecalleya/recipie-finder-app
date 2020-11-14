@@ -4,8 +4,6 @@ import firebase, { provider } from "../firebase";
 // allows us to create a context
 // gives us Provider and Consumer
 export const UserContext = createContext({});
-console.log(UserContext);
-
 
 export const UserProvider = (props) => {
 

@@ -16,8 +16,6 @@ const App = () => {
   const [recipe, setRecipes] = useState([]);
   const [user, setUser] = useState(null);
 
-  console.log("APP",savedRecipies)
-
   const apiCall = () => {
     const grabRecipes = async () => {
       const request = await fetch("https://www.themealdb.com/api/json/v1/1/random.php")

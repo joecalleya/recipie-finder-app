@@ -21,7 +21,6 @@ export const NavBar = (props) => {
       </span>
     );
   };
-console.log(user)
     return (
         <div className={styles.NavBar}>
         <Link to="/">

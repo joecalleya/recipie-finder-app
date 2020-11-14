@@ -31,10 +31,11 @@ const RecipieCard = (props) => {
               <img className={styles.responsiveImage} src={recipe.strMealThumb} alt="pic"/>
             </div>
             <h1>{recipe.strMeal}</h1>;
+            <div className={styles.list}>
+            <ShoppingList recipe={props.recipe} />
+            </div>
             <p>{recipe.strInstructions}</p>;
-            <ShoppingList
-                    recipe={recipe} 
-                    />
+
         </div>
        </div>
       )

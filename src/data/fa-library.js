@@ -9,7 +9,8 @@ import {
     faGlobe,
     faBookOpen,
     faPlusSquare,
-    faSignOutAlt
+    faSignOutAlt,
+    faCheck
 } from "@fortawesome/free-solid-svg-icons";
 
 export default library.add(
@@ -22,5 +23,7 @@ export default library.add(
     faYoutube,
     faPlusSquare,
     faGoogle,
-    faSignOutAlt
+    faSignOutAlt,
+    faCheck
+
 );
