@@ -22,46 +22,62 @@ const App = () => {
       const data = await request.json();
       return data;
     };
+
     grabRecipes().then(recipieData => {
       var recipe = recipieData.meals[0];
-      recipe = getCleanedRecipes(recipe)
+      recipe = cleanRecipeData(recipe)
       setRecipes(recipe)
       return recipe;
 
-})};
-const getCleanedRecipes = (rawRecipes) => {
-    // Missing step:  The goal of clean ingredients is to remove the "strIngredient1" "strIngredient2" "strIngredient3" 
-    // properties into an ARRAY of ingredients
-    rawRecipes.ingredients = [];
-    for (let i = 1; i < 21; i++) {
-      const ingredient = rawRecipes['strIngredient' + i];
-      if (ingredient) {
-        rawRecipes.ingredients.push(ingredient);
-      }        
-    }
-    return rawRecipes;
-  }
+    })
+  };
+
+  const cleanRecipeData = (recipe) => {
+    const cleanedRecipe = {
+      id: recipe.idMeal,
+      name: recipe.strMeal,
+      category: recipe.strCategory,
+      area: recipe.strArea,
+      instructions: recipe.strInstructions,
+      thumbnail: recipe.strMealThumb,
+      tags: recipe.strTags,
+      ingredients: getIngredients(recipe),
+      source: recipe.strSource,
+      dateCreated: new Date().toUTCString(),
+      dateModified: null,
+      youtube: recipe.strYoutube,
+      isFav: false,
+    };
+    return cleanedRecipe;
+  };
+
+  const getIngredients = (recipe) => {
+    let ingredients = [];
+    Object.keys(recipe).forEach((key) => {
+      if (key.includes("Ingr") && recipe[key]) {
+        ingredients.push(recipe[key]);
+      }
+    });
+    return ingredients;
+  };
 
   return (
     <UserProvider>
       <div className="App">
-          <section>
-            <NavBar 
-            // saveRecipieToList={saveRecipieToList} 
-            // savedRecipies={savedRecipies}  
-            />
-          </section>
-          <section>
+        <section>
+          <NavBar
+          />
+        </section>
+        <section>
           <CrudProvider>
-            <Routes 
-            setRecipes={setRecipes}
-            recipe={recipe}
-            apiCall= {apiCall}
-            // saveRecipieToList={saveRecipieToList} 
-            // savedRecipies={savedRecipies} 
-            />          
+            <Routes
+              setRecipes={setRecipes}
+              recipe={recipe}
+              apiCall={apiCall}
+
+            />
           </CrudProvider>
-          </section>
+        </section>
       </div>
     </UserProvider>
 

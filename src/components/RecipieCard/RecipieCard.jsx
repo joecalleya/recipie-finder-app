@@ -2,39 +2,42 @@ import React, { useState, useContext } from "react";
 import styles from "./RecipieCard.module.scss";
 import { CrudContext } from "../../context/crudContext";
 import ShoppingList from '../ShoppingList'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const RecipieCard = (props) => {
-    
-  
-    const [saveState, setSaveState] = useState(false);
-    const {recipe} = props;
-    const crudContext = useContext(CrudContext);
-    const { addToCookbook, removeFromCookbook } = crudContext;
+  const crudContext = useContext(CrudContext);
+  const { recipe } = props;
+  const { ingredients, name, instructions, isFav } = recipe;
+  const [isFavorite, setIsFavorite] = useState(false);
+  const {toggleFav ,addToSaved,favourites ,removeFromSaved} = crudContext;
 
-    const handleSaveClick = (e) => {
-        e.stopPropagation();
-        addToCookbook(props.recipe);
-      };
+  const [favState, setFavState] = useState(isFav);
 
-      const handleUnSaveClick = (e) => {
-        e.stopPropagation();
 
-        removeFromCookbook(props.recipe);
-      };
+    const handleClick = (e) => {
+      e.stopPropagation();
+      toggleFav(recipe);
+      setFavState(!isFav);
+    };
+
+    const saveIcon = isFav ? styles.fontAwesomeFavorite : styles.fontAwesome;
 
     return (
         <div className={styles.RecipieCard}>
-        <button onClick={handleSaveClick}>Save</button>
-        <button onClick={handleUnSaveClick}>UnSave</button>
+            <span className={`${saveIcon}`}>
+                <FontAwesomeIcon icon={["fas", "save"]} onClick={handleClick}
+                />
+            </span>
         <div className={styles.banner}>
             <div className={styles.image}>
-              <img className={styles.responsiveImage} src={recipe.strMealThumb} alt="pic"/>
+              <img className={styles.responsiveImage} src={recipe.thumbnail} alt="pic"/>
             </div>
-            <h1>{recipe.strMeal}</h1>;
+            <h1>{recipe.name}</h1>;
             <div className={styles.list}>
             <ShoppingList recipe={props.recipe} />
             </div>
-            <p>{recipe.strInstructions}</p>;
+            <p>{recipe.instructions}</p>;
 
         </div>
        </div>

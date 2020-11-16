@@ -7,6 +7,12 @@
   height: auto;
   background-color: papayawhip;
 }
+.RecipieCard .fontAwesomeFavorite {
+  color: red;
+}
+.RecipieCard .fontAwesome {
+  color: grey;
+}
 .RecipieCard .banner {
   display: flex;
   flex-direction: row;
@@ -16,8 +22,8 @@
   width: auto;
 }
 .RecipieCard .banner .image .responsiveImage {
-  height: auto;
-  width: 100%;
+  height: 225px;
+  width: 225px;
 }
 .RecipieCard .banner .list {
   width: 60%;
