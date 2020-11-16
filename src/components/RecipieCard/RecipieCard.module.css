@@ -3,15 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  width: 90%;
   height: auto;
   background-color: papayawhip;
 }
 .RecipieCard .fontAwesomeFavorite {
   color: red;
+  font-size: 200%;
 }
 .RecipieCard .fontAwesome {
   color: grey;
+  font-size: 200%;
 }
 .RecipieCard .banner {
   display: flex;
@@ -26,11 +27,15 @@
   width: 225px;
 }
 .RecipieCard .banner .list {
-  width: 60%;
+  width: 25%;
   font-size: 70%;
 }
-.RecipieCard p {
+.RecipieCard .banner h1 {
+  width: 15%;
+}
+.RecipieCard .banner p {
   font-size: 70%;
+  width: 80%;
 }
 
 .SectionButton {

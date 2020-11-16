@@ -7,32 +7,27 @@ import { CrudContext } from "../../context/crudContext";
 
 const SavedRecipies = (props) => {
 
-
   const crudContext = useContext(CrudContext);
-  const { favourites, fetchCookbook} = crudContext;
+  const { favourites } = crudContext;
 
- useEffect(() => {
-  fetchCookbook();
-  console.log(favourites);
 
-}, [])
-  const contentJsx = favourites.length ? 
-  favourites.map((item,index) =>
-                  <RecipieCard  
-                                key={index} 
-                                recipe={item}/>
-              )     
-            
-            : ('None Saved')
+  const contentJsx = favourites.length ?
+    favourites.map((item, index) =>
+      <RecipieCard
+        key={index}
+        recipe={item} />
+    )
+
+    : ('None Saved')
 
   return (
     <div >
-    <section >
+      <section >
         <p>Saved...</p>
 
-    </section>
-    <section className={styles.cookbook}>{contentJsx}
-    </section>
+      </section>
+      <section className={styles.cookbook}>{contentJsx}
+      </section>
     </div>
 
 

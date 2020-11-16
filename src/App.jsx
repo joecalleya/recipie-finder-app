@@ -63,7 +63,7 @@ const App = () => {
 
   return (
     <UserProvider>
-      <div className="App">
+      <div className={styles.app}>
         <section>
           <NavBar
           />

@@ -3,17 +3,19 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  width: 90%;
   height: auto;
   background-color: papayawhip;
 
   .fontAwesomeFavorite{
-    color:red
+    color:red;
+    font-size: 200%;
   }
 
 
   .fontAwesome{
-    color:grey
+    color:grey;
+    font-size: 200%;
+
   }
 
   .banner {
@@ -30,17 +32,22 @@
       }
     }
     .list {
-      width: 60%;
+      width: 25%;
       font-size: 70%;
+    }
+    h1 {
+      width: 15%;
 
-  
+    }
+
+    p {
+      font-size: 70%;
+      width: 80%;
+
     }
   }
 
-  p {
-    font-size: 70%;
-
-  }
+ 
 }
 
 .SectionButton {

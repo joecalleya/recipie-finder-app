@@ -10,19 +10,21 @@ export const CrudProvider = (props) => {
   const userContext = useContext(UserContext);
   
   const fetchCookbook = () => {
-    if (userContext.user) {
-      firestore
-        .collection("recipes")
-        .get()
-        .then((querySnapshot) => {
-          const favourites = querySnapshot.docs
-            .filter((doc) => doc.data().uid === userContext.user.uid)
-            .map((doc) => doc.data());
-          setFavourites(favourites);
-        })
-        .catch((err) => console.log(err));
-    }
+    firestore
+      .collection("recipes")
+      .get()
+      .then((querySnapshot) => {
+        const favourites = querySnapshot.docs.map((doc) => doc.data());
+        setFavourites(favourites)
+      })
+      .catch((err) => console.error(err));
   };
+
+  useEffect(() => {
+    fetchCookbook();
+    console.log(favourites);
+      }, [])
+
 
   const addToCookbook = (recipe) => {
     firestore
@@ -36,15 +38,15 @@ export const CrudProvider = (props) => {
   const removeFromCookbook = (recipe) => {
     const query = firestore
       .collection("recipes")
-      .where("idMeal", "==", recipe.id)
+      .where("id", "==", recipe.id)
       .where("uid", "==", userContext.user.uid);
 
     query.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => doc.ref.delete());
-      console.log("deleted")
-      fetchCookbook();
+      fetchCookbook()
     });
   };
+
 
 
   const toggleFav = (recipe) => {

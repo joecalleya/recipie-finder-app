@@ -14,15 +14,18 @@ const ShoppingList = (props) => {
     }
     const checkBox = (e) => {
         e.preventDefault();
-        setItemChecked(!itemChecked);
+        // setItemChecked(!itemChecked);
     };
 
-    const conditionalCheckBox = (itemChecked == false) ? styles.CheckBox : "";
+    // const conditionalCheckBox = (itemChecked == false) ? styles.CheckBox : "";
 
     const shoppingListIterate = recipe.ingredients ?
         ingredients.map((item, index) =>
             <li key={index}>{item}
-                <FontAwesomeIcon className={`${conditionalCheckBox}`} icon={["fas", "check"]} onClick={checkBox} />
+
+                <FontAwesomeIcon 
+                // className={`${conditionalCheckBox}`} 
+                icon={["fas", "check"]} onClick={checkBox} />
             </li>
         )
         : ('None Saved')

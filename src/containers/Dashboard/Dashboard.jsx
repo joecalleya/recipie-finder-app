@@ -18,7 +18,7 @@ const DashBoard = (props) => {
           <button className={styles.Button} type="button" text="Update" 
           onClick={() => setRecipes(null)}>Random Recipie</button>
         </section>
-        <section>
+        <section className={styles.recipes}>
         {recipe != null ? <RecipieCard 
         recipe={recipe} 
         addToCookbook={addToCookbook}/> : null}

@@ -10,38 +10,38 @@ const RecipieCard = (props) => {
   const { recipe } = props;
   const { ingredients, name, instructions, isFav } = recipe;
   const [isFavorite, setIsFavorite] = useState(false);
-  const {toggleFav ,addToSaved,favourites ,removeFromSaved} = crudContext;
+  const { toggleFav, addToSaved, favourites, removeFromSaved } = crudContext;
 
   const [favState, setFavState] = useState(isFav);
 
 
-    const handleClick = (e) => {
-      e.stopPropagation();
-      toggleFav(recipe);
-      setFavState(!isFav);
-    };
+  const handleClick = (e) => {
+    e.stopPropagation();
+    toggleFav(recipe);
+    setFavState(!isFav);
+  };
 
-    const saveIcon = isFav ? styles.fontAwesomeFavorite : styles.fontAwesome;
+  const saveIcon = isFav ? styles.fontAwesomeFavorite : styles.fontAwesome;
 
-    return (
-        <div className={styles.RecipieCard}>
-            <span className={`${saveIcon}`}>
-                <FontAwesomeIcon icon={["fas", "save"]} onClick={handleClick}
-                />
-            </span>
-        <div className={styles.banner}>
-            <div className={styles.image}>
-              <img className={styles.responsiveImage} src={recipe.thumbnail} alt="pic"/>
-            </div>
-            <h1>{recipe.name}</h1>;
-            <div className={styles.list}>
-            <ShoppingList recipe={props.recipe} />
-            </div>
-            <p>{recipe.instructions}</p>;
+  return (
+    <div className={styles.RecipieCard}>
 
+      <div className={styles.banner}>
+        <span className={`${saveIcon}`}>
+          <FontAwesomeIcon icon={["fas", "save"]} onClick={handleClick}
+          />
+        </span>
+        <div className={styles.image}>
+          <img className={styles.responsiveImage} src={recipe.thumbnail} alt="pic" />
         </div>
-       </div>
-      )
-     };
+        <h1>{recipe.name}</h1>;
+            <div className={styles.list}>
+          <ShoppingList recipe={props.recipe} />
+        </div>
+        <p>{recipe.instructions}</p>;
+        </div>
+    </div>
+  )
+};
 
 export default RecipieCard;
