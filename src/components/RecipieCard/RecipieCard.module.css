@@ -17,14 +17,15 @@
 .RecipieCard .banner {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .RecipieCard .banner .image {
-  display: flex;
-  width: auto;
+  height: 25%;
+  width: 25%;
 }
 .RecipieCard .banner .image .responsiveImage {
-  height: 225px;
-  width: 225px;
+  height: 100%;
+  width: 100%;
 }
 .RecipieCard .banner .list {
   width: 25%;
@@ -40,7 +41,7 @@
 
 .SectionButton {
   width: 100%;
-  height: 200px;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
