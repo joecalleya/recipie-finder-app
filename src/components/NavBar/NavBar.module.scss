@@ -1,12 +1,19 @@
 .NavBar {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     border-bottom: solid 2px black;
     opacity: 0.5;
     padding: 0 5px * 4;
 
-}
+    .faStyles {
+        font-size: 150%;
 
-a {
-    text-decoration: none;
+
+        a {
+            text-decoration: none;
+        }
+        
+    }
 }

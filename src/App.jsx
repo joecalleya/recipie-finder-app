@@ -61,6 +61,11 @@ const App = () => {
     return ingredients;
   };
 
+
+  useEffect(() => {
+    apiCall("");
+  }, []);
+
   return (
     <UserProvider>
       <div className={styles.app}>
