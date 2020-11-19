@@ -1,3 +1,21 @@
+recipie-finder-app 
+
+Firebase ,joecalleya.dev :https://random-recipie.firebaseapp.com/
+
+React app 
+
+- links to the MEal DB using a random recipie search.
+- Firebase authentication for signing in
+- Firestore for saving favorite recipies to be viewed later
+- the react front end then shows favs each recipie.
+
+Things to Improve...
+
+- can be made more responsive
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
