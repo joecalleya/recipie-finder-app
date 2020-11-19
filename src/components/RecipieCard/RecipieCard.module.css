@@ -24,9 +24,9 @@
   flex-wrap: wrap;
 }
 .RecipieCard .banner .image {
-  height: auto;
-  width: 30%;
-  margin: 2%;
+  height: 40%;
+  width: auto;
+  margin: 1%;
 }
 .RecipieCard .banner .image .responsiveImage {
   height: 100%;
@@ -34,13 +34,13 @@
 }
 .RecipieCard .banner .list {
   width: auto;
-  margin: 2%;
+  margin: 1%;
 }
 .RecipieCard .banner h1 {
   width: 5%;
-  margin: 2%;
+  margin: 1%;
 }
 .RecipieCard .banner p {
   width: auto;
-  margin: 2%;
+  margin: 1%;
 }

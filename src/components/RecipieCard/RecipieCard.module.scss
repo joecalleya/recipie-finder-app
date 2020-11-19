@@ -11,8 +11,6 @@
     font-size: 250%;
     width: 5%;
     margin: 3%;
-
-
   }
 
   .fontAwesome {
@@ -29,9 +27,9 @@
     flex-wrap: wrap;
 
     .image {
-      height: auto;
-      width: 30%;
-      margin: 2%;
+      height: 40%;
+      width: auto;
+      margin: 1%;
 
 
       .responsiveImage {
@@ -42,18 +40,17 @@
     }
     .list {
       width: auto;
-      margin: 2%;
+      margin: 1%;
 
     }
     h1 {
       width: 5%;
-      margin: 2%;
+      margin: 1%;
     }
 
     p {
       width: auto;
-      margin: 2%;
-
+      margin: 1%;
     }
   }
 
