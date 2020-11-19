@@ -25,12 +25,12 @@
 }
 .RecipieCard .banner .image {
   height: auto;
-  width: 50%;
+  width: 30%;
+  margin: 2%;
 }
 .RecipieCard .banner .image .responsiveImage {
   height: 100%;
   width: 100%;
-  margin: 2%;
 }
 .RecipieCard .banner .list {
   width: auto;
