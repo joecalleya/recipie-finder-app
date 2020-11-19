@@ -9,17 +9,24 @@
 
 .SectionButton {
   width: 100%;
-  height: 5%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: papayawhip;
 }
 
 .Button {
-  width: 40%;
-  height: 60%;
+  width: 60%;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 100%;
+  border: none;
+  background-color: #E038C7;
+  opacity: 0.5;
+}
+.Button:hover {
+  background-color: white;
 }

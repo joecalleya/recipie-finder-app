@@ -1,15 +1,18 @@
 .NavBar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-bottom: solid 2px black;
   opacity: 0.5;
   padding: 0 20px;
+  background-color: white;
+  color: #E038C7;
+}
+.NavBar a {
+  text-decoration: none;
+  color: #E038C7;
 }
 .NavBar .faStyles {
   font-size: 150%;
-}
-.NavBar .faStyles a {
-  text-decoration: none;
 }

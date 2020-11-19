@@ -8,11 +8,15 @@
 }
 .RecipieCard .fontAwesomeFavorite {
   color: red;
-  font-size: 200%;
+  font-size: 250%;
+  width: 5%;
+  margin: 3%;
 }
 .RecipieCard .fontAwesome {
   color: grey;
-  font-size: 200%;
+  font-size: 250%;
+  width: 5%;
+  margin: 3%;
 }
 .RecipieCard .banner {
   display: flex;
@@ -20,38 +24,23 @@
   flex-wrap: wrap;
 }
 .RecipieCard .banner .image {
-  height: 25%;
-  width: 25%;
+  height: auto;
+  width: 50%;
 }
 .RecipieCard .banner .image .responsiveImage {
   height: 100%;
   width: 100%;
+  margin: 2%;
 }
 .RecipieCard .banner .list {
-  width: 25%;
-  font-size: 70%;
+  width: auto;
+  margin: 2%;
 }
 .RecipieCard .banner h1 {
-  width: 15%;
+  width: 5%;
+  margin: 2%;
 }
 .RecipieCard .banner p {
-  font-size: 70%;
-  width: 80%;
-}
-
-.SectionButton {
-  width: 100%;
-  height: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Button {
-  width: 40%;
-  height: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 100%;
+  width: auto;
+  margin: 2%;
 }

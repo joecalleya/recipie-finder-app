@@ -27,19 +27,16 @@ const RecipieCard = (props) => {
     <div className={styles.RecipieCard}>
 
       <div className={styles.banner}>
-        <span className={`${saveIcon}`}>
-          <FontAwesomeIcon icon={["fas", "save"]} onClick={handleClick}
-          />
-        </span>
         <div className={styles.image}>
           <img className={styles.responsiveImage} src={recipe.thumbnail} alt="pic" />
         </div>
-        <h1>{recipe.name}</h1>;
-            <div className={styles.list}>
+        <h1>{recipe.name}</h1>
+        <div className={styles.list}>
           <ShoppingList recipe={props.recipe} />
         </div>
-        <p>{recipe.instructions}</p>;
-        </div>
+        <FontAwesomeIcon className={`${saveIcon}`} icon={["fas", "save"]} onClick={handleClick}/>
+        <p>{recipe.instructions}</p>
+      </div>
     </div>
   )
 };

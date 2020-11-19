@@ -24,11 +24,11 @@ export const NavBar = (props) => {
     return (
         <div className={styles.NavBar}>
         <Link to="/">
-          <h1>Random Recipie Generator</h1>
+          <h1>Recipe Generator</h1>
           </Link>
           {getSignInOutJsx()}
           <Link to="SavedRecipies">
-          <h1>SavedRecipies</h1>
+          <h1>Saved   Recipes</h1>
           </Link>
         </div>
     )
