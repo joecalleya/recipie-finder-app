@@ -6,13 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const RecipieCard = (props) => {
-  const crudContext = useContext(CrudContext);
   const { recipe } = props;
   const { ingredients, name, instructions, isFav } = recipe;
-  const [isFavorite, setIsFavorite] = useState(false);
-  const { toggleFav, addToSaved, favourites, removeFromSaved } = crudContext;
-
   const [favState, setFavState] = useState(isFav);
+  const crudContext = useContext(CrudContext);
+  const { toggleFav } = crudContext;
 
 
   const handleClick = (e) => {

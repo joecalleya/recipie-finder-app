@@ -10,12 +10,14 @@
   color: red;
   font-size: 250%;
   width: 5%;
+  height: 5%;
   margin: 3%;
 }
 .RecipieCard .fontAwesome {
   color: grey;
   font-size: 250%;
   width: 5%;
+  height: 5%;
   margin: 3%;
 }
 .RecipieCard .banner {
@@ -37,8 +39,10 @@
   margin: 1%;
 }
 .RecipieCard .banner h1 {
-  width: 5%;
   margin: 1%;
+  color: #E038C7;
+  font-size: 150%;
+  width: 10%;
 }
 .RecipieCard .banner p {
   width: auto;

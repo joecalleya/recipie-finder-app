@@ -8,11 +8,11 @@ import { CrudContext } from "../../context/crudContext";
 const SavedRecipies = (props) => {
 
   const crudContext = useContext(CrudContext);
-  const { favourites } = crudContext;
+  const { favorites } = crudContext;
 
 
-  const contentJsx = favourites.length ?
-    favourites.map((item, index) =>
+  const contentJsx = favorites.length ?
+  favorites.map((item, index) =>
       <RecipieCard
         key={index}
         recipe={item} />
@@ -26,7 +26,7 @@ const SavedRecipies = (props) => {
         <p>Saved...</p>
 
       </section>
-      <section className={styles.cookbook}>{contentJsx}
+      <section className={styles.saved}>{contentJsx}
       </section>
     </div>
 

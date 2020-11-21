@@ -1,8 +1,11 @@
-li {
-  list-style: none;
-  font-size: 100%;
+.shoppingList h1 {
+  font-size: 120%;
+  color: #E038C7;
 }
-
-.CheckBox {
-  color: red;
+.shoppingList li {
+  list-style: none;
+  font-size: 80%;
+}
+.shoppingList .checked {
+  text-decoration: line-through;
 }

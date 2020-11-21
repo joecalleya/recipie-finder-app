@@ -6,25 +6,23 @@ export const CrudContext = createContext({});
 
 export const CrudProvider = (props) => {
 
-  const [favourites, setFavourites] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const userContext = useContext(UserContext);
   
   const fetchCookbook = () => {
-    firestore
-      .collection("recipes")
-      .get()
-      .then((querySnapshot) => {
-        const favourites = querySnapshot.docs.map((doc) => doc.data());
-        setFavourites(favourites)
-      })
-      .catch((err) => console.error(err));
+    if (userContext.user) {
+      firestore
+        .collection("recipes")
+        .get()
+        .then((querySnapshot) => {
+          const favorites = querySnapshot.docs
+            .filter((doc) => doc.data().uid === userContext.user.uid)
+            .map((doc) => doc.data());
+            setFavorites(favorites);
+        })
+        .catch((err) => console.log(err));
+    }
   };
-
-  useEffect(() => {
-    fetchCookbook();
-    console.log(favourites);
-      }, [])
-
 
   const addToCookbook = (recipe) => {
     firestore
@@ -47,20 +45,25 @@ export const CrudProvider = (props) => {
     });
   };
 
-
-
   const toggleFav = (recipe) => {
     if (userContext.user) {
       recipe.isFav = !recipe.isFav;
       recipe.isFav ? addToCookbook(recipe) : removeFromCookbook(recipe);
+
     } else {
       alert(
         "You must be logged in to edit your cookbook. Please click the google icon to sign in with your gmail account."
       );
     }
   };
+
+  useEffect(() => {
+    fetchCookbook();
+    console.log(favorites);
+      }, [])
+
   return (
-    <CrudContext.Provider value={{toggleFav, favourites, addToCookbook, removeFromCookbook, fetchCookbook}}>
+    <CrudContext.Provider value={{toggleFav, favorites}}>
       {props.children}
     </CrudContext.Provider>
   )

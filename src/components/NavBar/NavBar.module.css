@@ -12,6 +12,7 @@
 .NavBar a {
   text-decoration: none;
   color: #E038C7;
+  font-size: 90%;
 }
 .NavBar .faStyles {
   font-size: 150%;

@@ -2,38 +2,52 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ShoppingList.module.scss"
 
+//set shopping list and checked items to emply so that they can be added to
+let checkedList = [];
+let shoppingList = [];
+
 const ShoppingList = (props) => {
 
-    const [itemChecked, setItemChecked] = useState(false);
 
     const { recipe } = props;
+    const [shoppingListUpdate, setShoppingListUpdate] = useState(false);
 
-    let ingredients = [];
-    if (recipe.ingredients) {
-        ingredients.push(...recipe.ingredients);
+    //add ingredients to inital list
+    if (recipe.ingredients && checkedList.length == 0) {
+        shoppingList = [...recipe.ingredients];
     }
-    const checkBox = (e) => {
-        e.preventDefault();
-        // setItemChecked(!itemChecked);
-    };
 
-    // const conditionalCheckBox = (itemChecked == false) ? styles.CheckBox : "";
+    const checkIngredientItem = (listToRemove,listToAdd,item,e) => {
+        //when clicked remove shopping list item to other checked ingredients list
+        e.preventDefault()
+        listToRemove.splice(listToRemove.indexOf(item),1)
+        listToAdd.push(item)
+        setShoppingListUpdate(!shoppingListUpdate)
+        };
 
-    const shoppingListIterate = recipe.ingredients ?
-        ingredients.map((item, index) =>
-            <li key={index}>{item}
-
-                <FontAwesomeIcon 
-                // className={`${conditionalCheckBox}`} 
-                icon={["fas", "check"]} onClick={checkBox} />
+        const shoppingListIterate = shoppingList ?
+        shoppingList.map((item, index) =>
+            <li key={index}>
+                {item} 
+                <FontAwesomeIcon icon={["fas", "check"]} onClick={(e) => checkIngredientItem(shoppingList,checkedList,item,e)} />
             </li>
-        )
-        : ('None Saved')
+        ):('None')
+
+        const checkedListIterate = checkedList ?
+        checkedList.map((item, index) =>
+            <li className={styles.checked} key={index} onClick={(e) => checkIngredientItem(checkedList,shoppingList,item,e)}>
+                {item} 
+                <FontAwesomeIcon icon={["fas", "times"]}  />
+            </li>
+        ):('None')    
 
     return (
-        <ul>
+        <div className={styles.shoppingList}>
+        <h1>Shopping List</h1>
             {shoppingListIterate}
-        </ul>
+        <h1>Checked Items</h1>
+            {checkedListIterate}
+        </div>
     )
 }
 export default ShoppingList;
