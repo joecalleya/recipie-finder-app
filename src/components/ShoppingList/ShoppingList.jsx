@@ -45,7 +45,7 @@ const ShoppingList = (props) => {
         <div className={styles.shoppingList}>
         <h1>Shopping List</h1>
             {shoppingListIterate}
-        <h1>Checked Items</h1>
+        <h1>Checked</h1>
             {checkedListIterate}
         </div>
     )
